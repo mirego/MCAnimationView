@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'MCAnimationView'
-  s.version  = '0.1.0'
+  s.version  = '0.1.1'
   s.license  = 'BSD 3-Clause'
   s.summary  = 'UIImageView alternative for animations that don\'t need to load all the images in memory at once and provide callback when animation is done.'
   s.homepage = 'https://github.com/mirego/MCAnimationView'
