@@ -33,7 +33,6 @@
 
 @interface MCAnimationView ()
 @property (nonatomic) UIImageView* imageView;
-@property (nonatomic) NSTimer* animationTimer;
 @property (nonatomic) NSMutableArray* animationFramesName;
 @property (nonatomic) NSMutableArray* animationFramesTime;
 @property (nonatomic) NSMutableArray* animationFramesCallback;
@@ -109,6 +108,8 @@
                     self.center = center;
                 self.imageView.frame = self.bounds;
             }
+        } else {
+            self.imageView.image = nil;
         }
         
         [self setNeedsDisplay];
@@ -159,10 +160,8 @@
                 }
             } atIndex:[_animation count] - 1];
         }
-        
-        if (_animationTimer == nil) {
-            _animationTimer = [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(animationTimerFired:) userInfo:nil repeats:NO];
-        }
+
+        [self animationTimerFired];
     }
     
     NSTimeInterval animationLength = _animationDuration * repeatCount;
@@ -174,12 +173,9 @@
     [_animationFramesName removeAllObjects];
     [_animationFramesTime removeAllObjects];
     [_animationFramesCallback removeAllObjects];
-    
-    [_animationTimer invalidate];
-    _animationTimer = nil;
 }
 
-- (void)animationTimerFired:(NSTimer *)timer
+- (void)animationTimerFired
 {
     if ([_animationFramesName count] > 0 &&
         [_animationFramesName count] == [_animationFramesTime count] &&
@@ -204,7 +200,11 @@
         
         // Schedule next frame in time - time elapsed to play this frame
         timeElapsed = ([NSDate timeIntervalSinceReferenceDate] - timeElapsed);
-        _animationTimer = [NSTimer scheduledTimerWithTimeInterval:(time - timeElapsed) target:self selector:@selector(animationTimerFired:) userInfo:nil repeats:NO];
+        double delayInSeconds = (time - timeElapsed);
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [self animationTimerFired];
+        });
         
         if (callback) {
             callback((time - timeElapsed) + 0.1);
