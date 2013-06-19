@@ -89,6 +89,12 @@
 //////////////////////////////////////////////////////////////
 #pragma mark public methods
 //////////////////////////////////////////////////////////////
+- (void)setContentMode:(UIViewContentMode)contentMode
+{
+    [super setContentMode:contentMode];
+    [self.imageView setContentMode:contentMode];
+}
+
 - (void)setAnimation:(NSArray *)animation
 {
     if ([_animation isEqualToArray:animation] == NO) {
@@ -99,7 +105,8 @@
             if (CGSizeEqualToSize(self.bounds.size, self.imageView.image.size) == NO) {
                 CGPoint center = self.center;
                 self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.imageView.image.size.width, self.imageView.image.size.height);
-                self.center = center;
+                if (self.contentMode == UIViewContentModeCenter)
+                    self.center = center;
                 self.imageView.frame = self.bounds;
             }
         }
@@ -185,7 +192,8 @@
         if (CGSizeEqualToSize(self.bounds.size, self.imageView.image.size) == NO) {
             CGPoint center = self.center;
             self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.imageView.image.size.width, self.imageView.image.size.height);
-            self.center = center;
+            if (self.contentMode == UIViewContentModeCenter)
+                self.center = center;
             self.imageView.frame = self.bounds;
         }
         
@@ -209,7 +217,8 @@
             if (CGSizeEqualToSize(self.bounds.size, self.imageView.image.size) == NO) {
                 CGPoint center = self.center;
                 self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.imageView.image.size.width, self.imageView.image.size.height);
-                self.center = center;
+                if (self.contentMode == UIViewContentModeCenter)
+                    self.center = center;
                 self.imageView.frame = self.bounds;
             }
         } else {
