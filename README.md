@@ -1,6 +1,49 @@
-# MCAnimationView
+# MCAnimationView - Animating stack of images.
 
 UIImageView alternative for animations that don't need to load all the images in memory at once and provide callback when animation is done.
+
+## Example Usage
+
+```objc
+- (void)funWithAnimations
+{
+  /*
+    Load 48 images in images array for animation.
+    load0001.png
+    load0002.png
+    ...
+    load0048.png
+  */
+  NSUInteger quantity = 48;
+  NSMutableArray* images = [@[] mutableCopy];
+  for (NSUInteger index=1; index<=quantity; index++) {
+    NSString* imageName = [NSString stringWithFormat:@"load%04d.png", index];
+    UIImage* image = [UIImage imageNamed:imageName];
+    [images addObject:image];
+  }
+
+  /*
+    Create the animation view and use it.
+  */
+  MCAnimationView* animationView = [[MCAnimationView alloc] initWithFrame:CGRectZero];
+  [animationView setAnimation:images];
+  [animationView setAnimationDuration:2.0f]; // 2 seconds,
+
+  /*
+    Start the animation
+  */
+  [animationView playAnimationRepeatCount:5 willPlayBlock:^(NSUInteger repetition) {
+    // Animation will play
+  } didPlayBlock:^(NSUInteger repetition) {
+    // Animation done playing
+  }];
+
+  /*
+    When you're done playing it.
+  */
+  [animationView stopAnimations];
+}
+```
 
 ## Adding to your project
 
