@@ -1,4 +1,6 @@
 # MCAnimationView
+[![Badge w/ Version](https://cocoapod-badges.herokuapp.com/v/MCAnimationView/badge.png)](https://cocoadocs.org/docsets/MCAnimationView)
+[![Badge w/ Platform](https://cocoapod-badges.herokuapp.com/p/MCAnimationView/badge.png)](https://cocoadocs.org/docsets/MCAnimationView)
 
 UIImageView alternative for animations that doesn't need to load all the images in memory at once and provide a callback when animation is done.
 
