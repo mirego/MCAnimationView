@@ -1,4 +1,6 @@
 # MCAnimationView
+[![Build Status](https://travis-ci.org/mirego/MCAnimationView.png?branch=master)](https://travis-ci.org/mirego/MCAnimationView)
+[![Coverage Status](https://coveralls.io/repos/mirego/MCAnimationView/badge.png?branch=master)](https://coveralls.io/r/mirego/MCAnimationView?branch=master)
 [![Badge w/ Version](https://cocoapod-badges.herokuapp.com/v/MCAnimationView/badge.png)](https://cocoadocs.org/docsets/MCAnimationView)
 [![Badge w/ Platform](https://cocoapod-badges.herokuapp.com/p/MCAnimationView/badge.png)](https://cocoadocs.org/docsets/MCAnimationView)
 
