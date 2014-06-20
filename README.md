@@ -31,6 +31,7 @@ UIImageView alternative for animations that doesn't need to load all the images 
   MCAnimationView* animationView = [[MCAnimationView alloc] initWithFrame:CGRectZero];
   [animationView setAnimation:images];
   [animationView setAnimationDuration:2.0f]; // 2 seconds,
+  [self.view addSubview: animationView];
 
   /*
     Start the animation
