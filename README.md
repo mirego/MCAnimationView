@@ -22,8 +22,7 @@ UIImageView alternative for animations that doesn't need to load all the images 
   NSMutableArray* images = [@[] mutableCopy];
   for (NSUInteger index=1; index<=quantity; index++) {
     NSString* imageName = [NSString stringWithFormat:@"load%04d.png", index];
-    UIImage* image = [UIImage imageNamed:imageName];
-    [images addObject:image];
+    [images addObject:imageName];
   }
 
   /*
