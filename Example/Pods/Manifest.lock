@@ -1,0 +1,22 @@
+PODS:
+  - MCAnimationView (1.0):
+    - MCUIImageAdvanced
+  - MCUIImageAdvanced (0.2.7):
+    - MGImageUtilities
+  - MGImageUtilities (0.0.1)
+
+DEPENDENCIES:
+  - MCAnimationView (from `../`)
+
+EXTERNAL SOURCES:
+  MCAnimationView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MCAnimationView: c9fcc032ffd91990a131371090aa4bc240e5e6b8
+  MCUIImageAdvanced: fbc5873532933a17317fa02b45daf715565b8608
+  MGImageUtilities: 73c885bf04fd7b21b11fbd132606e05200b12bf7
+
+PODFILE CHECKSUM: ec0ff1085789ef56436825a3677251613f14a8c0
+
+COCOAPODS: 1.0.1

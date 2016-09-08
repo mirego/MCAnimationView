@@ -1,0 +1,26 @@
+{
+  "name": "MCAnimationView",
+  "version": "1.0",
+  "summary": "UIImageView alternative for animations that does not load all the images in memory at once and provide a callback when animation is done.",
+  "homepage": "https://github.com/mirego/MCAnimationView",
+  "license": "BSD 3-Clause",
+  "authors": {
+    "Mirego, Inc.": "info@mirego.com"
+  },
+  "source": {
+    "git": "https://github.com/mirego/MCAnimationView.git",
+    "tag": "1.0"
+  },
+  "social_media_url": "https://twitter.com/Mirego",
+  "platforms": {
+    "ios": "7.0",
+    "tvos": "9.0"
+  },
+  "dependencies": {
+    "MCUIImageAdvanced": [
+
+    ]
+  },
+  "requires_arc": true,
+  "source_files": "MCAnimationView/Classes/*.{h,m}"
+}
