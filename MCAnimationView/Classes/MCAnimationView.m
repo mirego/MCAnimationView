@@ -94,6 +94,12 @@
     }
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.imageView.frame = self.bounds;
+}
+
 - (BOOL)isAnimationPlaying {
     return ([_animationFramesName count] > 0 &&
             [_animationFramesName count] == [_animationFramesTime count] &&
