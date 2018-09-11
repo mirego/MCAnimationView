@@ -76,10 +76,13 @@
 //////////////////////////////////////////////////////////////
 #pragma mark layout
 //////////////////////////////////////////////////////////////
-//- (void)layoutSubviews
-//{
-//    [super layoutSubviews];
-//}
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+
+    if (self.contentMode != UIViewContentModeCenter)
+        self.imageView.frame = self.bounds;
+}
 
 //////////////////////////////////////////////////////////////
 #pragma mark custom drawing
